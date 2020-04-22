@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3>Games</h3>
+    {% for game in sessions %}
+        1. {{ game.session_url }} - {{ game.status }} - {{ game.created_at }}
+    {% endfor %}
+{% endblock content %}
