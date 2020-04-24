@@ -1,4 +1,42 @@
 {% extends "base.html" %}
+{#{% block content %}#}
+{#    <h2>Create a New Game</h2>#}
+{#    <form>#}
+{#        <div class="form-group row">#}
+{#            <label for="gcode" class="col-5 col-form-label">Game Code</label>#}
+{#            <div class="col-7">#}
+{#                <span id="copyTarget"><5-letter code></span>&nbsp;#}
+{#                <button type="button" id="copyButton" class="btn btn-info">Copy Code</button>#}
+{#                <br><br>#}
+{#                <span id="gcodeHelpBlock" class="form-text text-muted">Share this code with the other players</span>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="form-group row">#}
+{#            <label for="alias" class="col-5 col-form-label">Name</label>#}
+{#            <div class="col-7">#}
+{#                <input id="alias" name="alias" placeholder="Panagiotis" type="text" class="form-control"#}
+{#                       aria-describedby="aliasHelpBlock">#}
+{#                <span id="aliasHelpBlock" class="form-text text-muted">Choose a nickname</span>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="form-group row">#}
+{#            <div class="offset-5 col-7">#}
+{#                <button name="submit" type="submit" class="btn btn-primary">Create New Game</button>#}
+{#            </div>#}
+{#        </div>#}
+{#    </form>#}
+{% load crispy_forms_tags %}
 {% block content %}
-    <h2>Create A New Game</h2>
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Create Game</legend>
+                {{ alias_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Create New Game</button>
+            </div>
+        </form>
+    </div>
 {% endblock content %}

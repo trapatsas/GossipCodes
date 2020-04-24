@@ -5,12 +5,12 @@ from .models import GameSession, PlayerAlias, Profile
 # Register your models here.
 @admin.register(GameSession)
 class GameSessionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'random_word', 'session_url')
+    list_display = ('random_word', 'game_code')
 
 
 @admin.register(PlayerAlias)
 class PlayerAliasAdmin(admin.ModelAdmin):
-    list_display = ('player', 'role', 'alias')
+    list_display = ('player', 'game_session', 'role', 'alias')
 
 
 @admin.register(Profile)

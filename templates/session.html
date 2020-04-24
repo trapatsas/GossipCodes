@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="media content-section">
+        <img class="rounded-circle article-img" src="{{ object.host.image.url }}" width="150px">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">Game host is: {{ object.host }}</a>
+                <small class="text-muted">{{ object.created_at|date:"F d, Y" }}</small>
+            </div>
+        </div>
+    </div>
+    <div class="media content-section">
+        <div>
+            <span id="copyTarget">{{ object.game_code }}</span>&nbsp;
+            <button type="button" id="copyButton" class="btn btn-info">Copy Code</button>
+            <span id="gcodeHelpBlock" class="form-text text-muted">Share this code with the other players</span>
+        </div>
+
+    </div>
+    <div class="media content-section">
+        <p class="article-content">Players Joined:</p>
+
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+{#        <fieldset class="form-group">#}
+{#            <input id="gcode" name="gcode" placeholder="Enter the 5-letter code" type="text"#}
+{#                   class="form-control"#}
+{#                   aria-describedby="gcodeHelpBlock">#}
+{#        </fieldset>#}
+        <fieldset class="form-group">
+            <div class="form-group row">
+                <div class="offset-5 col-7">
+                    <button name="submit" type="submit" class="btn btn-primary">Let's go!</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+{% endblock content %}
